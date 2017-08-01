@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ravikant.todo_mvp.views.activity.SignInActivity">
+
+    <ImageView
+        android:src="@drawable/bg3"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_above="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/app_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutBottom"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/ux_transparent_top_input_bg"
+            android:hint="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColorHint="@color/common_dark_text_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:background="@color/common_dark_text_color" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/ux_transparent_bottom_input_bg"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColorHint="@color/common_dark_text_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <Button
+                android:id="@+id/btnForgot"
+                style="?android:attr/textAppearanceLarge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:layout_weight="1"
+                android:text="@string/forgot"
+                android:textColor="@android:color/white"
+                android:background="@drawable/ux_dark_fff_btn_bg" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                style="?android:attr/textAppearanceLarge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
+                android:text="@string/login"
+                android:textColor="@color/active_card"
+                android:background="@drawable/ux_white_btn_bg" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

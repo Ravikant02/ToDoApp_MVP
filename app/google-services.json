@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "339676713487",
+    "firebase_url": "https://todomvp-1efcd.firebaseio.com",
+    "project_id": "todomvp-1efcd",
+    "storage_bucket": "todomvp-1efcd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339676713487:android:9f5a97dc23a6ecf5",
+        "android_client_info": {
+          "package_name": "com.ravikant.todo_mvp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339676713487-k1ugd52dp2jlclqlj4ek89c788gl47fq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwTjGWxhRb6yNgitFQJhquUHUx0oqmGmY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

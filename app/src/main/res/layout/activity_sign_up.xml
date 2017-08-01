@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ravikant.todo_mvp.views.activity.SignUpActivity">
+
+    <ImageView
+        android:src="@drawable/bg3"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:padding="30dp"
+        android:text="@string/sign_up_with_email"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/form"
+        android:layout_below="@+id/title">
+
+        <View
+            android:layout_width="@dimen/badge_settings"
+            android:layout_height="@dimen/badge_settings"
+            android:layout_centerInParent="true"
+            android:background="@drawable/image_picker_bg" />
+
+        <TextView
+            android:id="@+id/setPicture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/add_picture"
+            android:gravity="center_horizontal"
+            android:text="Picture"
+            android:textColor="#9b9b9b" />
+
+        <ImageView
+            android:id="@+id/userImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin">
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ux_transparent_top_input_bg"
+            android:hint="@string/your_name"
+            android:inputType="textCapWords"
+            android:padding="10dp"
+            android:textColorHint="@color/common_dark_text_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/common_dark_text_color" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#8fff"
+            android:hint="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColorHint="@color/common_dark_text_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/common_dark_text_color" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ux_transparent_bottom_input_bg"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColorHint="@color/common_dark_text_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnSignUp"
+                style="?android:attr/textAppearanceLarge"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/buttonHeight"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
+                android:text="@string/sign_up_button_text"
+                android:textColor="@color/active_card"
+                android:background="@drawable/ux_white_btn_bg" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

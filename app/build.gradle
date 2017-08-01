@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion TARGET_SDK
+    buildToolsVersion BUILD_TOOL_VERSION
+    defaultConfig {
+        applicationId BASE_APPLICATION_ID
+        minSdkVersion MIN_SDK
+        targetSdkVersion TARGET_SDK
+        versionCode Integer.parseInt(APP_VERSION_CODE)
+        versionName APP_VERSION_CODE
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    /*signingConfigs {
+        release {
+            storeFile file(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+        }
+        debug {
+            storeFile file('../distribution/debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }*/
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:${SUPPORT_LIBRARY_VERSION}"
+    compile "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:palette-v7:$SUPPORT_LIBRARY_VERSION"
+    compile "com.google.firebase:firebase-messaging:$FIREBASE_LIBRARY_VERSION"
+    compile "com.google.firebase:firebase-storage:$FIREBASE_LIBRARY_VERSION"
+    compile "com.google.firebase:firebase-database:$FIREBASE_LIBRARY_VERSION"
+    compile "com.google.firebase:firebase-auth:$FIREBASE_LIBRARY_VERSION"
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
+    compile 'com.firebaseui:firebase-ui-storage:0.6.0'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.jakewharton:butterknife:8.7.0'
+    compile 'de.keyboardsurfer.android.widget:crouton:1.8.5@aar'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
+}
+
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ToDo.Widget.TransparentActionBar." parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="background">@android:color/transparent</item>
+    </style>
+
+    <style name="ToDo.Theme.NoActionBar.Light" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/ToDo.Widget.TransparentActionBar.</item>
+        <item name="actionBarStyle">@style/ToDo.Widget.TransparentActionBar.</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+
+</resources>
