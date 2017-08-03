@@ -8,6 +8,8 @@
     <string name="forgot">Forgot?</string>
     <string name="sign_up_button_text">Sign up</string>
     <string name="sign_up_with_email">Sign Up with Email</string>
+    <string name="select_image">Select an Image</string>
+    <string name="take_image">Take an Image</string>
 
     <string name="title_activity_main">MainActivity</string>
 
@@ -23,4 +25,5 @@
     <string name="please_provide_required_details">Please provide required details!</string>
     <string name="error_while_login">Error while login!</string>
     <string name="error_while_sign_up">Error while Sign Up with Email!</string>
+    <string name="please_select_profile_image">Please select profile image!</string>
 </resources>

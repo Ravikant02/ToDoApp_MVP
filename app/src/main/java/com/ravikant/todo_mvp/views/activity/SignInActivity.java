@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.ravikant.todo_mvp.R;
-import com.ravikant.todo_mvp.core.ToDoCore;
+import com.ravikant.todo_mvp.core.AppCore;
 import com.ravikant.todo_mvp.interfaces.LoginView;
 import com.ravikant.todo_mvp.presenters.LoginPresenter;
 
@@ -47,7 +47,7 @@ public class SignInActivity extends AppCompatActivity implements LoginView {
 
     private void initView(){
         /** INITIALISE ALL VIEW OBJECTS HERE*/
-        Typeface font = ToDoCore.getAppDefaultFont(this);
+        Typeface font = AppCore.getAppDefaultFont(this);
         edtEmail.setTypeface(font);
         edtPassword.setTypeface(font);
         btnForgot.setTypeface(font);

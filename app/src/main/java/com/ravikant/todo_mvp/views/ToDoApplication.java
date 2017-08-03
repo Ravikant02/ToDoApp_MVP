@@ -14,12 +14,16 @@ import android.support.multidex.MultiDexApplication;
 public class ToDoApplication extends Application implements Application.ActivityLifecycleCallbacks {
 
     private static Context applicationContext = null;
-    private Activity currentActivity;
+    private Activity currentActivity=null;
     @Override
     public void onCreate() {
         super.onCreate();
         registerActivityLifecycleCallbacks(this);
         ToDoApplication.applicationContext = getApplicationContext();
+    }
+
+    public static ToDoApplication getInstance() {
+        return (ToDoApplication) applicationContext;
     }
 
     public static Context getContext() {
@@ -47,27 +51,27 @@ public class ToDoApplication extends Application implements Application.Activity
 
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        currentActivity = activity;
+        ToDoApplication.this.currentActivity = activity;
     }
 
     @Override
     public void onActivityStarted(Activity activity) {
-        currentActivity = activity;
+        ToDoApplication.this.currentActivity = activity;
     }
 
     @Override
     public void onActivityResumed(Activity activity) {
-        currentActivity = activity;
+        ToDoApplication.this.currentActivity = activity;
     }
 
     @Override
     public void onActivityPaused(Activity activity) {
-
+        ToDoApplication.this.currentActivity = null;
     }
 
     @Override
     public void onActivityStopped(Activity activity) {
-
+        ToDoApplication.this.currentActivity = null;
     }
 
     @Override
@@ -77,6 +81,6 @@ public class ToDoApplication extends Application implements Application.Activity
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-
+        ToDoApplication.this.currentActivity = null;
     }
 }

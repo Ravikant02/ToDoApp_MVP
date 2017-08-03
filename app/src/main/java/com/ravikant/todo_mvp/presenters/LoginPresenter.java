@@ -35,12 +35,12 @@ public class LoginPresenter {
             return;
         }
         if (password.isEmpty()){
-            loginView.onEmptyEmail(ToDoApplication.getContext().getString(R.string.password_required));
+            loginView.onEmptyPassword(ToDoApplication.getContext().getString(R.string.password_required));
             return;
         }
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new ToDoApplication().getCurrentActivity(), new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(ToDoApplication.getInstance().getCurrentActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
