@@ -10,7 +10,7 @@
     <string name="sign_up_with_email">Sign Up with Email</string>
     <string name="select_image">Select an Image</string>
     <string name="take_image">Take an Image</string>
-
+    <string name="hold_on_we_are_loading">Hold On! we are loading</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

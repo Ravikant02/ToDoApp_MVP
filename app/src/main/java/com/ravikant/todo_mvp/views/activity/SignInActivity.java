@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.ravikant.todo_mvp.R;
+import com.ravikant.todo_mvp.components.MessageProgressDialog;
 import com.ravikant.todo_mvp.core.AppCore;
 import com.ravikant.todo_mvp.interfaces.LoginView;
 import com.ravikant.todo_mvp.presenters.LoginPresenter;
@@ -27,6 +28,7 @@ public class SignInActivity extends AppCompatActivity implements LoginView {
     @BindView(R.id.btnForgot) Button btnForgot;
 
     private LoginPresenter loginPresenter;
+    private MessageProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,7 @@ public class SignInActivity extends AppCompatActivity implements LoginView {
         edtPassword.setTypeface(font);
         btnForgot.setTypeface(font);
         btnLogin.setTypeface(font);
+        progressDialog = new MessageProgressDialog(this);
 
         edtEmail.setText("ravikant@blazeautomation.com");
         edtPassword.setText("qwerty");
@@ -74,28 +77,26 @@ public class SignInActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void onLoginSuccess() {
+        progressDialog.dismissProgress();
         finish();
         startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
     public void onLoginFailed(String errorMessage) {
+        progressDialog.dismissProgress();
         showErrorDialog(errorMessage);
     }
 
     @Override
-    public void onEmptyData(String errorMessage) {
+    public void onErrorShow(String errorMessage) {
+        progressDialog.dismissProgress();
         showErrorDialog(errorMessage);
     }
 
     @Override
-    public void onEmptyEmail(String errorMessage) {
-        showErrorDialog(errorMessage);
-    }
-
-    @Override
-    public void onEmptyPassword(String errorMessage) {
-        showErrorDialog(errorMessage);
+    public void onShowProgress(String message) {
+        progressDialog.showProgress(message);
     }
 
     private void showErrorDialog(final String errorMessage){

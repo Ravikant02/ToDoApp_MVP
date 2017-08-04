@@ -7,7 +7,6 @@ package com.ravikant.todo_mvp.interfaces;
 public interface LoginView {
     void onLoginSuccess();
     void onLoginFailed(String errorMessage);
-    void onEmptyData(String errorMessage);
-    void onEmptyEmail(String errorMessage);
-    void onEmptyPassword(String errorMessage);
+    void onErrorShow(String errorMessage);
+    void onShowProgress(String message);
 }

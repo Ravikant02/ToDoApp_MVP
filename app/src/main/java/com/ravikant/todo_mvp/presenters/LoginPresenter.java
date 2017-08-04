@@ -27,18 +27,18 @@ public class LoginPresenter {
 
     public void getLogin(final String email, final String password){
         if (email.isEmpty() && password.isEmpty()){
-            loginView.onEmptyEmail(ToDoApplication.getContext().getString(R.string.please_provide_required_details));
+            loginView.onErrorShow(ToDoApplication.getContext().getString(R.string.please_provide_required_details));
             return;
         }
         if (email.isEmpty()){
-            loginView.onEmptyEmail(ToDoApplication.getContext().getString(R.string.email_required));
+            loginView.onErrorShow(ToDoApplication.getContext().getString(R.string.email_required));
             return;
         }
         if (password.isEmpty()){
-            loginView.onEmptyPassword(ToDoApplication.getContext().getString(R.string.password_required));
+            loginView.onErrorShow(ToDoApplication.getContext().getString(R.string.password_required));
             return;
         }
-
+        loginView.onShowProgress(ToDoApplication.getContext().getResources().getString(R.string.hold_on_we_are_loading));
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(ToDoApplication.getInstance().getCurrentActivity(), new OnCompleteListener<AuthResult>() {
                     @Override

@@ -8,4 +8,5 @@ public interface SignUpView {
     void onSignUpSuccess();
     void onSignUpFailed(String errorMessage);
     void onErrorShow(String errorMessage);
+    void onShowProgress(String message);
 }

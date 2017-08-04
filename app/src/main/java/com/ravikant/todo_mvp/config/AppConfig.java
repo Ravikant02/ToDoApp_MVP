@@ -7,6 +7,7 @@ package com.ravikant.todo_mvp.config;
 public class AppConfig {
 
     public static final String TABLE_USER_DETAILS = "user_details";
+    public static final String FIREBASE_PROFILE_IMAGE_FOLDER_NAME = "profile_images";
 
 
     public static final int MY_PERMISSIONS_REQUEST_CAMERA = 11;

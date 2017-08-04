@@ -30,7 +30,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".views.activity.SignUpActivity"
+            android:name=".views.activity.SignInActivity"
             android:theme="@style/ToDo.Theme.NoActionBar.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,8 +40,11 @@
         <activity android:name=".views.activity.SplashActivity" />
         <activity
             android:name=".views.activity.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
         <!--<activity android:name=".views.activity.SignUpActivity"></activity>-->
     </application>
 
