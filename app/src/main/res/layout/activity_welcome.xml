@@ -4,19 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ravikant.todo_mvp.views.activity.SplashActivity">
+    tools:context="com.ravikant.todo_mvp.views.activity.WelcomeActivity">
 
-    <ImageView
-        android:src="@drawable/bg3"
-        android:scaleType="fitXY"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <ImageView
+    <Button
+        android:id="@+id/btnLogin"
+        android:text="Login"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/app_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
 </RelativeLayout>

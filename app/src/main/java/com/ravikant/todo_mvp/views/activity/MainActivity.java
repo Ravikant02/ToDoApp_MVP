@@ -14,19 +14,34 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.ravikant.todo_mvp.R;
+import com.ravikant.todo_mvp.config.AppConfig;
+import com.ravikant.todo_mvp.interfaces.DashboardView;
+import com.ravikant.todo_mvp.models.Board;
+import com.ravikant.todo_mvp.presenters.MainPresenter;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, DashboardView {
 
-    @BindView(R.id.tmpImage) ImageView imageView;
+    // @BindView(R.id.tmpImage) ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +74,11 @@ public class MainActivity extends AppCompatActivity
             Log.e("PIC", user.getDisplayName());
             if (user.getPhotoUrl()!=null)
                 Log.e("PIC", user.getPhotoUrl().toString());
-            Picasso.with(this).load(user.getPhotoUrl()).into(imageView);
+            // Picasso.with(this).load(user.getPhotoUrl()).into(imageView);
+
+            MainPresenter presenter = new MainPresenter(this);
+            // presenter.addBoard(user.getUid(), new Board("first board", "09/08/2017 17:23:20" ,"09/08/2017 17:23:20", true));
+            presenter.getAllBoards(user.getUid());
         }
         // FirebaseAuth.getInstance().signOut();
     }
@@ -119,5 +138,17 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onGetAllBoards(List<Board> boards) {
+        // Crouton.makeText(MainActivity.this, boards.size()+"", Style.ALERT).show();
+        Toast.makeText(this, boards.size()+"", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onErrorShow(String errorMessage) {
+        /** METHOD TO SHOW ERROR MESSAGE IN TOP ERROR DIALOG IN THE SCREEN*/
+        Crouton.makeText(MainActivity.this, errorMessage, Style.ALERT).show();
     }
 }

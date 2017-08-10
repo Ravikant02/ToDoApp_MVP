@@ -7,6 +7,10 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.multidex.MultiDexApplication;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.ravikant.todo_mvp.config.AppConfig;
+
 /**
  * Created by ravikant on 28/7/17.
  **/
@@ -15,11 +19,26 @@ public class ToDoApplication extends Application implements Application.Activity
 
     private static Context applicationContext = null;
     private Activity currentActivity=null;
+    private static FirebaseDatabase database;
+
     @Override
     public void onCreate() {
         super.onCreate();
         registerActivityLifecycleCallbacks(this);
         ToDoApplication.applicationContext = getApplicationContext();
+        // FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        database = FirebaseDatabase.getInstance();
+        database.setPersistenceEnabled(true);
+    }
+
+    public static FirebaseDatabase getFirebaseDataBaseInstance(){
+        return database;
+    }
+
+    public static DatabaseReference getBoardsTableDbReference(){
+        DatabaseReference dbReference = database.getReference(AppConfig.TABLE_BOARDS);
+        dbReference.keepSynced(true);
+        return dbReference;
     }
 
     public static ToDoApplication getInstance() {
@@ -31,7 +50,7 @@ public class ToDoApplication extends Application implements Application.Activity
     }
 
     public Activity getCurrentActivity() {
-        return currentActivity;
+        return ToDoApplication.this.currentActivity;
     }
 
     @Override
